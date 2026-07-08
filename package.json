@@ -1,0 +1,14 @@
+{
+  "name": "evm-wallet-generator",
+  "version": "1.0.0",
+  "type": "module",
+  "description": "High-performance EVM vanity wallet generator using Node.js Worker Threads",
+  "main": "generator.js",
+  "scripts": {
+    "start": "node generator.js",
+    "test": "node test.js"
+  },
+  "dependencies": {
+    "ethers": "^6.13.1"
+  }
+}
