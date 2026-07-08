@@ -107,7 +107,7 @@ ${BOLD}${CYAN}====================================================
   console.log(`${BOLD}Configuration:${RESET}`);
   console.log(`  - Exclude digits:  ${config.excludeDigits.length > 0 ? config.excludeDigits.join(', ') : 'None'}`);
   console.log(`  - Allowed digits:  ${config.onlyDigits.length > 0 ? config.onlyDigits.join(', ') : 'All digits (0-9)'}`);
-  console.log(`  - Address suffix:  ${config.suffix ? `${GREEN}${config.suffix}${RESET}` : 'None'}`);
+  console.log(`  - Address suffix:  ${config.suffix ? `${GREEN}${config.suffix.split('').join(', ')}${RESET} (last ${config.suffix.length} chars in any order)` : 'None'}`);
   console.log(`  - Target count:    ${config.count}`);
   console.log(`  - Active threads:  ${config.threads}`);
   console.log(`  - Output file:     ${config.outputFile}`);
