@@ -28,7 +28,7 @@ ${BOLD}Usage:${RESET}
 ${BOLD}Options:${RESET}
   -e, --exclude <digits>  Digits to exclude from the address (e.g. 4,9)
   -o, --only <digits>     Only allow these digits in the address (e.g. 1,3,6,8)
-  -s, --suffix <string>   The target suffix the address must end with (e.g. 1368)
+  -s, --suffix <string>   Allowed characters for the last N characters of the address (e.g. 1368 allows any combination/order of 1, 3, 6, 8)
   -c, --count <number>    Number of wallets to find (default: 1)
   -t, --threads <number>  Number of worker threads (default: CPU core count)
   -f, --output <file>     Output file to save the generated wallets (default: wallets.txt)

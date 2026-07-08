@@ -18,16 +18,19 @@ const forbiddenDigits = Array.from(forbiddenDigitsSet);
 
 // Determine the optimized check function
 let checkAddress;
-if (forbiddenDigits.length > 0 && suffix) {
-  const regex = new RegExp(`[${forbiddenDigits.join('')}]`);
+if (suffix) {
   const lowercaseSuffix = suffix.toLowerCase();
-  checkAddress = (addr) => addr.endsWith(lowercaseSuffix) && !regex.test(addr);
+  const suffixLen = suffix.length;
+  const suffixRegex = new RegExp(`^[${lowercaseSuffix}]{${suffixLen}}$`);
+  if (forbiddenDigits.length > 0) {
+    const forbiddenRegex = new RegExp(`[${forbiddenDigits.join('')}]`);
+    checkAddress = (addr) => suffixRegex.test(addr.slice(-suffixLen)) && !forbiddenRegex.test(addr);
+  } else {
+    checkAddress = (addr) => suffixRegex.test(addr.slice(-suffixLen));
+  }
 } else if (forbiddenDigits.length > 0) {
-  const regex = new RegExp(`[${forbiddenDigits.join('')}]`);
-  checkAddress = (addr) => !regex.test(addr);
-} else if (suffix) {
-  const lowercaseSuffix = suffix.toLowerCase();
-  checkAddress = (addr) => addr.endsWith(lowercaseSuffix);
+  const forbiddenRegex = new RegExp(`[${forbiddenDigits.join('')}]`);
+  checkAddress = (addr) => !forbiddenRegex.test(addr);
 } else {
   checkAddress = () => true;
 }
