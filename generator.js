@@ -28,7 +28,7 @@ ${BOLD}Usage:${RESET}
 ${BOLD}Options:${RESET}
   -e, --exclude <digits>  Digits to exclude from the address (e.g. 4,9)
   -o, --only <digits>     Only allow these digits in the address (e.g. 1,3,6,8)
-  -s, --suffix <string>   Allowed characters for the last N characters of the address (e.g. 1368 allows any combination/order of 1, 3, 6, 8)
+  -s, --suffix <string>   Allowed characters for the last 3 characters of the address (e.g. 1368 allows any combination/order of 1, 3, 6, 8)
   -c, --count <number>    Number of wallets to find (default: 1)
   -t, --threads <number>  Number of worker threads (default: CPU core count)
   -f, --output <file>     Output file to save the generated wallets (default: wallets.txt)
@@ -107,7 +107,7 @@ ${BOLD}${CYAN}====================================================
   console.log(`${BOLD}Configuration:${RESET}`);
   console.log(`  - Exclude digits:  ${config.excludeDigits.length > 0 ? config.excludeDigits.join(', ') : 'None'}`);
   console.log(`  - Allowed digits:  ${config.onlyDigits.length > 0 ? config.onlyDigits.join(', ') : 'All digits (0-9)'}`);
-  console.log(`  - Address suffix:  ${config.suffix ? `${GREEN}${config.suffix.split('').join(', ')}${RESET} (last ${config.suffix.length} chars in any order)` : 'None'}`);
+  console.log(`  - Address suffix:  ${config.suffix ? `${GREEN}${config.suffix.split('').join(', ')}${RESET} (last 3 chars in any order)` : 'None'}`);
   console.log(`  - Target count:    ${config.count}`);
   console.log(`  - Active threads:  ${config.threads}`);
   console.log(`  - Output file:     ${config.outputFile}`);

@@ -20,7 +20,7 @@ const forbiddenDigits = Array.from(forbiddenDigitsSet);
 let checkAddress;
 if (suffix) {
   const lowercaseSuffix = suffix.toLowerCase();
-  const suffixLen = suffix.length;
+  const suffixLen = 3;
   const suffixRegex = new RegExp(`^[${lowercaseSuffix}]{${suffixLen}}$`);
   if (forbiddenDigits.length > 0) {
     const forbiddenRegex = new RegExp(`[${forbiddenDigits.join('')}]`);
